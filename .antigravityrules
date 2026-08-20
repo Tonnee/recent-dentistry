@@ -1,0 +1,55 @@
+# Antigravity Workspace Rules & Guidelines
+
+## 1. Next.js App Router Architecture
+- **Server Components First**: Treat all components in `app/` as React Server Components (RSC) by default.
+- **Selective Client Components**: Only add `"use client"` at the top of files that explicitly require client-side interactivity, state (`useState`, `useReducer`), effects (`useEffect`), or browser APIs.
+- **Version Awareness**: Refer to local `node_modules/next/dist/docs/` or installed Next.js package types for framework features specific to Next.js 16+.
+- **Optimization & Prefetching**: Utilize Next.js `Link` with optimal prefetching and standard navigation patterns.
+
+## 2. Separation of Concerns & Directory Structure
+- **UI Components**: Keep purely presentational UI components under `app/components/` or route-specific `_components/` folders.
+- **Logic & Services**: Place reusable hooks in `hooks/` and API/data services in `services/` or `lib/`.
+- **Private Components**: Use `_components` subdirectories within route folders for components isolated to a single page route.
+- **Naming Conventions**: Enforce strict `kebab-case` for all folder and file names (e.g., `cta-section.tsx`, `navbar-item.tsx`, `use-appointment.ts`).
+
+## 3. Strict TypeScript Rules
+- **No `any`**: Zero usage of implicit or explicit `any`. Use generics, `unknown` with type guards, or explicit types.
+- **Explicit Interfaces**: Provide clear, exported `interface` or `type` declarations for all component props, API request/response payloads, and custom event handlers.
+- **Strict Null Checks**: Safely handle optional values and undefined states.
+
+## 4. Code Quality & Formatting
+- **Early Exit Pattern**: Guard clauses and early returns are mandatory to eliminate deeply nested code blocks.
+- **Readable Conditionals**: Prefer clean boolean logic and composition over nested ternary expressions.
+- **Immutability**: Avoid direct state mutation; use immutable updates.
+
+## 5. Strict Tailwind CSS & Styling Rules
+- **Design Tokens**: Standardize colors and sizing in `globals.css` / `@theme`.
+- **No Arbitrary Values**: Avoid arbitrary spacing or dimensions (e.g., `h-[23px]`, `w-[347px]`). Use theme utilities or CSS variables.
+- **No Hardcoded Hex Colors**: Avoid hardcoded hex colors in utility classes (e.g., `text-[#123456]`). Use CSS variable color utility classes defined in the design system.
+- **Interactive States**: Always include proper accessibility and interaction classes (`hover:`, `focus-visible:`, `active:`, `disabled:`).
+- **Accessible UI**: Use accessible UI primitives (such as Radix UI) for complex interactive components like dialogs, menus, and accordions.
+
+## 6. SEO & Asset Standards
+- **Next.js Image Component**: Always use `next/image` with meaningful `alt` text, proper sizing attributes (`width`/`height` or `fill`), and optimized format loading.
+- **Descriptive Media Names**: Name images descriptively using kebab-case (e.g., `dentist-hero-banner.jpg`).
+- **Semantic HTML**: Maintain clean document hierarchy with a single `h1` per page, followed by structured `h2`-`h6` tags.
+- **Page Metadata**: Export descriptive `Metadata` objects on every route page (`title`, `description`, OpenGraph tags).
+
+## 7. Agent Scope & Communication
+- **Strict Scope Execution**: Fulfill only the exact user request without introducing unrequested refactors, unsolicited styling changes, or extra features.
+- **Concise Responses**: Provide clear, direct answers without unnecessary boilerplate or narrative fluff.
+
+## 8. TAILWIND & UI GUIDELINES
+
+### Styling & Design Tokens
+*   **No Arbitrary Hardcoded Spacing/Sizing:** The use of arbitrary spacing values (e.g., `h-[23px]`, `p-[11px]`, `m-[13px]`) is strictly forbidden. You must strictly use the standard Tailwind spacing scale (`p-4`, `h-6`, `m-2`).
+*   **No Arbitrary Colors:** Forbid arbitrary hex codes in Tailwind classes (e.g., `text-[#123456]`). You must use semantic color tokens mapped in the theme (e.g., `text-foreground-muted`, `bg-background-card`, `border-border-muted`).
+*   **Dynamic CSS Exceptions:** If a style value depends dynamically on runtime javascript calculations (e.g., a progress bar width or carousel position), use an inline `style` block or a CSS variable. Do not generate arbitrary classes dynamically.
+
+### State & Accessible Interactions
+*   **Interactive State Handling:** All interactive elements (buttons, inputs, links) must handle all visual states explicitly and responsively using standard Tailwind utility classes:
+    *   Hover: `hover:...`
+    *   Focus & Focus Visible (Accessibility): `focus-visible:...` (ensure high-contrast outlines/rings).
+    *   Active: `active:...`
+    *   Disabled: `disabled:...`
+*   **Custom Components with Radix Primitives:** For advanced UI elements (dialogs, dropdowns, accordions, popovers), build custom Tailwind-styled wrappers over Radix UI primitives to ensure complete keyboard navigation and screen-reader accessibility (WAI-ARIA).

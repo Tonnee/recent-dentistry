@@ -1,32 +1,43 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FBFCFF;
+  --foreground: #080705;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  /* colors */
+
+  /* Primary Brand Colors */
+  --color-brand-blue: #003E6C;
   --color-primary-blue: #165686;
   --color-secondary-blue: #2CBEEE;
-  --color-accent-yellow: "#F9CC33";
-  --color-dark: "#262C15";
-  --color-light: "#DFF2F7";
+  --color-cyan-accent: #00B6F2;
+  --color-accent-yellow: #F5BD00;
+  --color-dark: #080705;
+  --color-light-bg: #FBFCFF;
+  --color-nav-link: #4B4B4B;
+  --color-light-blue: #DFF2F7;
 
-  /* Fonts */
-  --font-inter: var(--font-inter);
-  --font-nunito: var(--font-nunito);
+  /* Font Families */
+  --font-roboto: var(--font-roboto), sans-serif;
+  --font-raleway: var(--font-raleway), sans-serif;
+  --font-nunito: var(--font-nunito), sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  font-family: var(--font-raleway), sans-serif;
 }
 
-.font-inter {
-  font-family: var(--font-inter), sans-serif;
+.font-roboto {
+  font-family: var(--font-roboto), sans-serif;
+}
+
+.font-raleway {
+  font-family: var(--font-raleway), sans-serif;
 }
 
 .font-nunito {
