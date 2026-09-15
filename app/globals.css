@@ -19,6 +19,11 @@
   --color-light-bg: #FBFCFF;
   --color-nav-link: #4B4B4B;
   --color-light-blue: #DFF2F7;
+  --color-ice-blue: #B8F3FF;
+  --color-sky-cyan: #3FCFFF;
+  --color-deep-blue: #00345A;
+  --color-ocean-blue: #0076CE;
+  --color-soft-cyan: #66D9FF;
 
   /* Font Families */
   --font-roboto: var(--font-roboto), sans-serif;
@@ -42,4 +47,31 @@ body {
 
 .font-nunito {
   font-family: var(--font-nunito), sans-serif;
+}
+
+/* Custom Theme Utilities */
+.bg-ocean-blue {
+  background-color: #0076CE;
+}
+
+.bg-soft-cyan {
+  background-color: #66D9FF;
+}
+
+.bg-sky-cyan {
+  background-color: #3FCFFF;
+}
+
+.bg-deep-blue {
+  background-color: #00345A;
+}
+
+/* Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
