@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import ReviewsSection from "../components/home/reviews/reviews-section";
+import { Container } from "../components/ui/container/Container";
 
 export const metadata: Metadata = {
-    title: "Patient Reviews & Testimonials | Recent Dentistry",
-    description:
-        "Read verified feedback and testimonials from our patients about their comfortable, high-quality dental experiences at Recent Dentistry.",
+    title: "Reviews | Recent Dentistry",
+    description: "Patient reviews and testimonials for Recent Dentistry.",
 };
 
 export default function ReviewsPage() {
     return (
-        <main className="py-8 sm:py-12">
-            <h1 className="sr-only">Patient Reviews & Testimonials - Recent Dentistry</h1>
-            <ReviewsSection />
+        <main className="py-16 sm:py-24">
+            <Container>
+                <h1 className="font-roboto font-bold text-3xl sm:text-5xl text-dark">
+                    Reviews
+                </h1>
+            </Container>
         </main>
     );
 }

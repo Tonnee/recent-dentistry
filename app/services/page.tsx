@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import ServicesSection from "../components/home/services/services-section";
+import { Container } from "../components/ui/container/Container";
 
 export const metadata: Metadata = {
-    title: "Our Services | Recent Dentistry",
-    description:
-        "Explore our comprehensive dental services including General Dentistry, Orthodontics, Dental Implants, Cosmetic Dentistry, Oral Surgery, and Emergency Appointments.",
+    title: "Services | Recent Dentistry",
+    description: "Our dental services at Recent Dentistry.",
 };
 
 export default function ServicesPage() {
     return (
-        <main className="py-8 sm:py-12">
-            <h1 className="sr-only">Dental Care Services - Recent Dentistry</h1>
-            <ServicesSection />
+        <main className="py-16 sm:py-24">
+            <Container>
+                <h1 className="font-roboto font-bold text-3xl sm:text-5xl text-dark">
+                    Services
+                </h1>
+            </Container>
         </main>
     );
 }

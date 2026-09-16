@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
-import PracticeSection from "../components/home/practice/practice-section";
+import { Container } from "../components/ui/container/Container";
 
 export const metadata: Metadata = {
-    title: "Our Dental Specialists | Recent Dentistry",
-    description:
-        "Meet Dr. Mamunur Rashid and our expert dental specialists providing world-class dentistry in Dhaka and Florida.",
+    title: "Dentist | Recent Dentistry",
+    description: "Our dentists and dental specialists at Recent Dentistry.",
 };
 
 export default function DoctorsPage() {
     return (
-        <main className="py-8 sm:py-12">
-            <h1 className="sr-only">Our Dental Specialists - Recent Dentistry</h1>
-            <PracticeSection />
+        <main className="py-16 sm:py-24">
+            <Container>
+                <h1 className="font-roboto font-bold text-3xl sm:text-5xl text-dark">
+                    Dentist
+                </h1>
+            </Container>
         </main>
     );
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Raleway, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/layout/navbar/Navbar";
+import Footer from "./components/layout/footer/footer-section";
 
 const roboto = Roboto({
     weight: ["400", "500", "700", "900"],
@@ -34,10 +35,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${roboto.variable} ${raleway.variable} ${nunito.variable} font-raleway antialiased`}
+                className={`${roboto.variable} ${raleway.variable} ${nunito.variable} font-raleway antialiased min-h-screen flex flex-col justify-between`}
             >
                 <Navbar />
-                {children}
+                <div className="flex-1">{children}</div>
+                <Footer />
             </body>
         </html>
     );
